@@ -1,6 +1,6 @@
 package br.com.store.storeapi.data.dto;
 
-import br.com.store.storeapi.data.dto.entity.StorePurchase;
+import br.com.store.storeapi.data.entity.StorePurchase;
 
 public record StoreResponse(
         Boolean isCreditCardValid,

@@ -4,8 +4,8 @@ import br.com.store.storeapi.Integration.FiscalNoteIntegration;
 import br.com.store.storeapi.Integration.GatewayIntegration;
 import br.com.store.storeapi.data.dto.StoreRequest;
 import br.com.store.storeapi.data.dto.StoreResponse;
-import br.com.store.storeapi.data.dto.entity.StorePurchase;
-import br.com.store.storeapi.data.dto.repository.StoreRepository;
+import br.com.store.storeapi.data.entity.StorePurchase;
+import br.com.store.storeapi.data.repository.StoreRepository;
 import org.springframework.stereotype.Service;
 
 @Service

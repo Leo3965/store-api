@@ -1,4 +1,4 @@
-package br.com.store.storeapi.data.dto.entity;
+package br.com.store.storeapi.data.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
