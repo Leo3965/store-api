@@ -1,0 +1,58 @@
+version: '3.3'
+
+networks:
+  seller-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+
+services:
+
+  postgres:
+    image: postgres:latest
+    container_name: "postgres-store"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: sellerdb
+    networks:
+      - seller-network
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  pgadmin4:
+    image: 'dpage/pgadmin4:7.1'
+    container_name: "pgadmin-store"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: 123
+    networks:
+      - seller-network
+    ports:
+      - "8082:80"
+
+  gateway_api:
+    build: projects/gateway-pagamento-api/
+    container_name: 'gateway-api'
+    networks:
+      - seller-network
+    ports:
+      - "3000:3000"
+
+#  store_api:
+#    image: leofreiitas/seller-api:0.0.1-SNAPSHOT
+#    container_name: "seller-api"
+#    environment:
+#      DATASOURCE_URL: jdbc:postgresql://postgres:5432/postgres
+#      DB_USER: postgres
+#      DB_PIN: mysecretpassword
+#    networks:
+#      - seller-network
+#    ports:
+#      - "80:8080"
+
+
+
