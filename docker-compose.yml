@@ -42,6 +42,14 @@ services:
     ports:
       - "3000:3000"
 
+  fiscal_note_api:
+    build: projects/nota-fiscal-api/
+    container_name: 'fiscal-note-api'
+    networks:
+      - seller-network
+    ports:
+      - "3001:3001"
+
 #  store_api:
 #    image: leofreiitas/seller-api:0.0.1-SNAPSHOT
 #    container_name: "seller-api"
